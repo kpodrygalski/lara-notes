@@ -3,7 +3,7 @@
 use App\Http\Controllers\API\V1\APINoteController;
 use Illuminate\Support\Facades\Route;
 
-Route::controller(APINoteController::class)->prefix('notes')->group(function () {
+Route::middleware('auth:sanctum')->controller(APINoteController::class)->prefix('notes')->group(function () {
     // localhost:8000/api/notes/
     Route::get('/', 'index')->name('notes.get-notes-list');
 
